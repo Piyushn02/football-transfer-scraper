@@ -1,6 +1,6 @@
-# football-transfer-scraper
- A Python tool to scrape and analyze European football transfer data from Transfermarkt.
- This project extracts detailed information about player transfers, including fees, market values, and contract details.
+#  Football Transfer Scraper
+
+A Python tool to scrape European football club transfer data from [Transfermarkt](https://www.transfermarkt.com). This project extracts detailed information about player transfers, including fees, market values, and contract details.
 
 ##  Features
 
@@ -8,7 +8,31 @@
 - **Data Cleaning**: Automatically cleans and formats transfer fee data (handling loans, free transfers, etc.).
 - **CSV Export**: Saves the consolidated data into a structured CSV file for easy analysis.
 
-##  Technologies Used
+##  How it Works
+
+This project uses a systematic approach to extract and clean data:
+
+1.  **Data Fetching**:
+    - Sends an HTTP GET request to Transfermarkt with a custom `User-Agent` header to mimic a real browser and avoid being blocked.
+
+2.  **HTML Parsing**:
+    - Uses **BeautifulSoup** to parse the raw HTML response.
+    - Identifies specific "boxes" in the HTML structure that contain transfer tables for each club.
+    - Distinguishes between **Incoming** and **Outgoing** transfer tables within each club's section.
+
+3.  **Data Extraction**:
+    - Iterates through each row (`tr`) of the transfer tables.
+    - Uses **RegEx (Regular Expressions)** to precisely extract data points (like Age, Position, Market Value) from the HTML cell strings.
+
+4.  **Data Cleaning & Formatting**:
+    - **Translation**: Converts German terms (e.g., "Leihe", "ablösefrei") into English ("Loan", "no fee").
+    - **Fee Standardization**: Cleans up transfer fee strings, removing unnecessary HTML tags and formatting loan fees.
+
+5.  **Export**:
+    - Consolidates all extracted lists into a **Pandas DataFrame**.
+    - Exports the final dataset to a CSV file for use in Excel or further analysis.
+
+## 🛠️ Technologies Used
 
 - **Python 3.x**
 - **[Pandas](https://pandas.pydata.org/)**: For data manipulation and CSV export.
@@ -23,12 +47,6 @@ Ensure you have Python installed. You will need the following libraries:
 ```bash
 pip install requests pandas beautifulsoup4
 ```
-
-## Requirements
-
-requests
-pandas
-beautifulsoup4
 
 ## 💻 Usage
 
