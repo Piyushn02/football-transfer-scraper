@@ -2,13 +2,13 @@
  A Python tool to scrape and analyze European football transfer data from Transfermarkt.
  This project extracts detailed information about player transfers, including fees, market values, and contract details.
 
-## 🚀 Features
+##  Features
 
 - **Comprehensive Data**: Scrapes player names, ages, nationalities, positions, market values, previous clubs, new clubs, and transfer fees.
 - **Data Cleaning**: Automatically cleans and formats transfer fee data (handling loans, free transfers, etc.).
 - **CSV Export**: Saves the consolidated data into a structured CSV file for easy analysis.
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - **Python 3.x**
 - **[Pandas](https://pandas.pydata.org/)**: For data manipulation and CSV export.
@@ -23,6 +23,12 @@ Ensure you have Python installed. You will need the following libraries:
 ```bash
 pip install requests pandas beautifulsoup4
 ```
+
+## Requirements
+
+requests
+pandas
+beautifulsoup4
 
 ## 💻 Usage
 
